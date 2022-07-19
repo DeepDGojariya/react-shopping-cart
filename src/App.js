@@ -98,7 +98,7 @@ class App extends Component {
           </div>
           <div className="sidebar"><Cart cartItems={this.state.cartItems} removeFromCart={this.removeFromCart} createOrder={this.createOrder}/></div>
         </div>
-        <footer className="bg-dark text-light text-center " style={{ position: "fixed", bottom: 0, width: "100%", padding: "10px 10px 0px 10px", height: "40px" }}>All Rights Reserved</footer>
+        <footer className="bg-dark text-light text-center " style={{ position: "fixed", bottom: 0, width: "100%", padding: "10px 10px 0px 10px", height: "50px" }}>All Rights Reserved</footer>
       </>
     );
   }
