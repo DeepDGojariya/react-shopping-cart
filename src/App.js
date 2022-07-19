@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <nav className="navbar navbar-expand-lg bg-light">
+  <div className="container-fluid">
+    <a className="navbar-brand" href="/">Navbar w/ text</a>
+    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
+    </button>
+      <span className="navbar-text">
+        Admin
+      </span>
+  </div>
+</nav>
+<footer className="bg-light text-center" style={{position:"fixed",bottom:0,width:"100%",padding:"10px 10px 0px 10px",height:"40px"}}>All Rights Reserved</footer>
+</>
   );
 }
 
