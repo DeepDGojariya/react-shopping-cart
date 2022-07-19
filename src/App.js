@@ -12,14 +12,13 @@ class App extends Component {
       products: data.products,
       size: "",
       sort: "",
-      cartItems:[]
+      cartItems: localStorage.getItem("cartItems") ? JSON.parse(localStorage.getItem("cartItems")):[]
     }
   }
 
   sortProducts = (event) => {
 
     const sort = event.target.value
-    console.log(sort)
     this.setState({
       sort: sort,
       products: this.state.products.slice().sort((a, b) =>
@@ -57,6 +56,7 @@ class App extends Component {
     this.setState({
       cartItems:cartItems
     })
+    localStorage.setItem("cartItems",JSON.stringify(cartItems))
   }
 
 
@@ -65,7 +65,12 @@ class App extends Component {
     this.setState({
       cartItems: cartItems.filter(x=>x._id !== product._id)
     })
+    localStorage.setItem("cartItems",JSON.stringify(cartItems.filter(x=>x._id !== product._id)))
     
+  }
+
+  createOrder = (order)=>{
+    alert("Order created for "+order.name)
   }
 
   render() {
@@ -91,7 +96,7 @@ class App extends Component {
               sortProducts={this.sortProducts}></Filter>
             <Products products={this.state.products} addToCart={this.addToCart} />
           </div>
-          <div className="sidebar"><Cart cartItems={this.state.cartItems} removeFromCart={this.removeFromCart}/></div>
+          <div className="sidebar"><Cart cartItems={this.state.cartItems} removeFromCart={this.removeFromCart} createOrder={this.createOrder}/></div>
         </div>
         <footer className="bg-dark text-light text-center " style={{ position: "fixed", bottom: 0, width: "100%", padding: "10px 10px 0px 10px", height: "40px" }}>All Rights Reserved</footer>
       </>
